@@ -1,24 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Poppins", sans-serif;
 }
 
 :root {
-    --color-text-primary: #EDF3FF;
-    --color-text-secondary: #D7E5FF;
-    --color-text-placeholder: #A0B1CF;
-    --color-bg-primary: #111827;
-    --color-bg-secondary: #233043;
-    --color-bg-sidebar: #1E2939;
-    --color-border-hr: #364153;
-    --color-hover-secondary: #33435B;
-    --color-hover-secondary-alt: #415472;
-    --gradient-blue-purple: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+   --color-text-primary: #edf3ff;
+   --color-text-secondary: #d7e5ff;
+   --color-text-placeholder: #a0b1cf;
+   --color-bg-primary: #111827;
+   --color-bg-secondary: #233043;
+   --color-bg-sidebar: #1e2939;
+   --color-border-hr: #364153;
+   --color-hover-secondary: #33435b;
+   --color-hover-secondary-alt: #415472;
+   --gradient-blue-purple: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
 
-    --sidebar-open-width: 260px;
-    --sidebar-closed-width: 80px;
+   --sidebar-open-width: 260px;
+   --sidebar-closed-width: 80px;
+}
+
+.app-container.light-theme {
+   --color-text-primary: #2a2a2a;
+   --color-text-secondary: #4a5565;
+   --color-text-placeholder: #7f93b7;
+   --color-bg-primary: #f3f7ff;
+   --color-bg-secondary: #e3ebf6;
+   --color-bg-sidebar: #e6edf8;
+   --color-border-hr: #d9dbdd;
+   --color-hover-secondary: #d4dced;
+   --color-hover-secondary-alt: #c9d4ea;
+}
+
+.app-container {
+   display: flex;
+   height: 100vh;
+   width: 100vw;
+   color: var(--color-text-primary);
+   background: var(--color-bg-primary);
 }
