@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { act, useEffect, useRef, useState } from "react";
 
 import Message from "./components/Message";
 import PromptForm from "./components/PromptForm";
@@ -24,6 +24,34 @@ function App() {
       return prefersDark ? "dark" : "light";
    });
 
+   const [conversations, setConversations] = useState(() => {
+
+    try {
+      const saved = localStorage.getItem("conversations");
+      return saved ? JSON.parse(saved) : [{id: "default", title: "New Chat", messages: []}];
+    } catch {
+      return [{id: "default", title: "New Chat", messages: []}];
+    }
+
+   });
+
+   const [activeConversation, setActiveConversation] = useState(() => {
+    return localStorage.getItem("activeConversation") || "default";
+   });
+
+   useEffect(() => {
+    localStorage.setItem("activeConversation", activeConversation)
+   }, [activeConversation]);
+
+   useEffect(() => {
+    localStorage.setItem("conversations", JSON.stringify(conversations))
+   }, [conversations]);
+
+  // handle theme changes
+   useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.documentElement.classList.toggle("dark", theme === "dark");
+   }, [theme]);
 
 
    return (
